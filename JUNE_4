@@ -1,13 +1,15 @@
 #include <iostream>
-#include <bits/stdc++.h>
-using namespace std;
+        #include <boost/multiprecision/cpp_int.hpp>
+    #include <bits/stdc++.h>
+    namespace mp = boost::multiprecision;
+    using namespace std;
  
 int main() {
     int t,n,i;
-    long long int a[100000];
+    mp::cpp_int a[100000];
     cin>>t;
     while(t--){
-        long long int sump=0,sumn=0,max=0;
+        mp::cpp_int sump=0,sumn=0,max=0;
         int nn=0,np=0;
         cin>>n;
         for(i=0;i<n;i++){
@@ -16,15 +18,18 @@ int main() {
             if(a[i]>=0){sump+=a[i];np++;}
         }
         sort(a,a+n);
+        //for(i=0;i<n;i++)cout<<a[i]<<" ";
+          //  cout<<endl;
         max=sump*np+sumn;
-        //cout<<max<<endl;
-        while(nn>0&&max<(sump+a[nn-1])*(np+1)+sumn-a[nn-1]){
-            max=(sump+a[nn-1])*(np+1)+sumn-a[nn-1];
-            //cout<<max<<endl;
+        //cout<<nn<<endl;
+
+        while(nn>0&&max<((sump+a[nn-1])*(np+1)+sumn-a[nn-1])){
             sump=sump+a[nn-1];
+            sumn=sumn-a[nn-1];
             np++;
             nn--;
-            
+            max=sump*np+sumn;
+            //cout<<max<<" "<<nn<<" "<<np<<" "<<sump<<endl;
         }
         cout<<max<<endl;
         
