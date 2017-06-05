@@ -1,0 +1,13 @@
+    #include <stdio.h>
+     
+    int main(void) {
+        unsigned long long int x,y;
+        int t;
+        scanf("%d",&t);
+        while(t--){
+            scanf("%lld%lld",&x,&y);
+            printf("%lld\n",(x*x+y*y+2*x*y+3*x+y+2)/2);//(x+1)*(x+2)/2+(x+y)*(x+y+1)/2-(x)*(x+1)/2
+        }
+    	// your code goes here
+    	return 0;
+    } 
