@@ -1,0 +1,37 @@
+    #include <iostream>
+        #include <boost/multiprecision/cpp_int.hpp>
+    #include <bits/stdc++.h>
+    namespace mp = boost::multiprecision;
+    using namespace std;
+     
+    int main() {
+        int t,n,i;
+        mp::cpp_int a[100000];
+        cin>>t;
+        while(t--){
+            mp::cpp_int sump=0,sumn=0,max=0;
+            int nn=0,np=0;
+            cin>>n;
+            for(i=0;i<n;i++){
+                cin>>a[i];
+                if(a[i]<0){nn++;sumn+=a[i];}
+                if(a[i]>=0){sump+=a[i];np++;}
+            }
+            sort(a,a+n);
+            max=sump*np+sumn;
+            //cout<<max<<endl;
+            while(nn>0&&max<(sump+a[nn-1])*(np+1)+sumn-a[nn-1]){
+                max=(sump+a[nn-1])*(np+1)+sumn-a[nn-1];
+                //cout<<max<<endl;
+                sump=sump+a[nn-1];
+                np++;
+                nn--;
+                
+            }
+            cout<<max<<endl;
+            
+        }
+    	// your code goes here
+    	return 0;
+    }
+     
