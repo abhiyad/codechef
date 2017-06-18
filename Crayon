@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cstring>
+using namespace :: std ;
+
+int min(int a,int b){
+	if(a<b)return a;
+	else return b;
+}
+void prgm()
+{
+	char ch;
+	int s=0;
+	int num;int t=0;
+	string str;
+	cin>>str;
+	int i;
+	int arr[50];
+	if(str[0]=='U')num=1;
+	else num=0;
+	arr[0]=num;
+	for(i=1;str[i]!='\0';i++)
+	{
+		if(str[i]!=str[i-1]){t++;num=!num;
+		arr[t]=num;}
+	}
+	for(i=0;i<1+t;i++){s+=arr[i];}
+	cout<<min(s,t+1-s)<<endl;
+	return ;
+}
+int main ()
+{
+	int t;
+	cin>>t;
+	while(t--)prgm();
+	return 0;
+}
