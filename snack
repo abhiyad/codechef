@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cstring>
+using namespace :: std ;
+
+void prgm()
+{
+	int i,j=1,k,n;
+	cin>>n;
+	int y=0;
+	int v=n;
+	int arr[100];
+	int brr[200];
+	for(i=0;i<n;i++){arr[i]=i;brr[i]=i;brr[n+i]=i;}
+	// brr is main array
+	int i1=0,i2=1;
+	cout<<n<<endl;
+	while(v--)
+	{	i1++;i2++;
+		cout<<n<<endl;
+		for(y=0;y<n;y++)
+		{
+			cout<<1+arr[y]<<" "<<1+arr[i1%n]<<" "<<1+arr[i2%n]<<endl;
+			i1+=2;
+			i2+=2;
+		}
+		
+	}
+return ;
+}	
+int main ()
+{
+	int t;
+	cin>>t;
+	while(t--)prgm();	
+	return 0;
+}
